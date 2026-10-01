@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int _lifePoint = 1;
+
+    public void LoseLifePoints(int amount)
     {
-        
+        _lifePoint -= amount;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddLifePoints(int amount)
     {
-        
+        _lifePoint += amount;
     }
 }
