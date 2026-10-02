@@ -1,14 +1,17 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     PlayerLife _playerHP;
     int _playerScore;
+    [SerializeField]TMP_Text _scoreTxt;
     [SerializeField]float _timer;
     void Start()
     {
         SetOfCursor();
+        AddPoint(0);
     }
 
     private void Update()
@@ -30,5 +33,6 @@ public class GameManager : MonoBehaviour
     public void AddPoint(int amount)
     {
         _playerScore += amount;
+        _scoreTxt.text = _playerScore.ToString();
     }
 }
