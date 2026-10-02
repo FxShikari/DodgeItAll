@@ -1,17 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     PlayerLife _playerHP;
+    int _playerScore;
+    [SerializeField]float _timer;
     void Start()
     {
         SetOfCursor();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _timer = Time.deltaTime;
     }
 
     private void SetOfCursor()
@@ -23,5 +25,10 @@ public class GameManager : MonoBehaviour
     public void SetPlayerHP(int amount)
     {
         _playerHP.SetHp(amount);
+    }
+
+    public void AddPoint(int amount)
+    {
+        _playerScore += amount;
     }
 }
