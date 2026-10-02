@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _timer = Time.deltaTime;
+        _timer += Time.deltaTime;
     }
 
     private void SetOfCursor()
