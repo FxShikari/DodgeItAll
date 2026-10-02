@@ -17,14 +17,7 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.forward, _bulletSpeed * Time.deltaTime);
+        transform.Translate( _bulletSpeed * Time.deltaTime, 0, 0);
     }
-
-    //private void fire()
-    //{
-    //    StartWait();
-    //    Rigidbody2D bullet = (Rigidbody2D)Instantiate(_bullet, transform.position, transform.rotation);
-    //    bullet.linearVelocity = transform.forward * _bulletSpeed;
-    //}
 
 }

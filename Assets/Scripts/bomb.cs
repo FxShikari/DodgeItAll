@@ -22,7 +22,7 @@ public class bomb : MonoBehaviour
     {
         if (_follow == true)
         {
-            transform.position = Vector2.MoveTowards (transform.position, _target.transform.position, 2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards (transform.position, _target.transform.position, 10 * Time.deltaTime);
         }
     }
 
