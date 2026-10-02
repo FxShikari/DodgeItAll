@@ -3,18 +3,28 @@ using UnityEngine;
 
 public class PlayerSize : MonoBehaviour
 {
-    [Serialize, ] private int _playerSize;
-    [Serialize] GameObject _player;
-    [Serialize] GameObject _styleZone;
+    [SerializeField, Range(0,10)] private int _playerSize;
+    [SerializeField] CircleCollider2D _styleZone;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void OnEnable()
+    {
+        transform.localScale = new Vector3(_playerSize, _playerSize, _playerSize);
+        _styleZone.radius = _playerSize * 1.15f;
+    }
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, _styleZone.radius);
     }
 }
