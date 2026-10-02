@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerSize : MonoBehaviour
@@ -10,7 +9,7 @@ public class PlayerSize : MonoBehaviour
     private void OnEnable()
     {
         transform.localScale = new Vector3(_playerSize, _playerSize, _playerSize);
-        _styleZone.radius = _playerSize * 1.08f;
+        _styleZone.radius = _playerSize * 1.3f;
     }
     void Start()
     {
