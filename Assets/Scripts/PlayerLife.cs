@@ -7,7 +7,6 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] LayerMask _projectileLayer;
     [SerializeField] private int _lifePoint = 1;
     [SerializeField] private CircleCollider2D _circleCollider;
-    [SerializeField] private LayerMask _projectileLayer;
 
     void Start()
     {
@@ -21,11 +20,6 @@ public class PlayerLife : MonoBehaviour
         {
             Death();
         }
-    }
-
-    private void Start()
-    {
-        _hitbox = FindFirstObjectByType<CircleCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,13 +38,17 @@ public class PlayerLife : MonoBehaviour
         _lifePoint += amount;
         if (_lifePoint <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
+        {
+            print("boom");
+            SetHp(-1);
+        }
     }
 
     private void Death()
