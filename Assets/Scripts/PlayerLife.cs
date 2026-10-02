@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    private int _lifePoint = 1;
+    [SerializeField] private int _lifePoint = 1;
 
-    public void LoseLifePoints(int amount)
-    {
-        _lifePoint -= amount;
-    }
-
-    public void AddLifePoints(int amount)
+    public void SetHp(int amount)
     {
         _lifePoint += amount;
     }

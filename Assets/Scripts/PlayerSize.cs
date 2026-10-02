@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerSize : MonoBehaviour
 {
-    [SerializeField, Range(0,10)] private int _playerSize;
+    [SerializeField, Range(0,1.5f)] private float _playerSize;
     [SerializeField] CircleCollider2D _styleZone;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
