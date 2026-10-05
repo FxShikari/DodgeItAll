@@ -5,19 +5,20 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject _projToSpawn;
     [SerializeField] GameObject[] _spawnPoints;
-    [SerializeField] GameObject _father;
+    [SerializeField] Poubelle _father;
     [SerializeField] bool _spin;
     [SerializeField] bool _move;
 
-    [SerializeField] Transform _target;
     [SerializeField] float _Mspeed;
     [SerializeField] float _Rspeed;
-    [SerializeField] float _Fspeed;
+    [SerializeField] float _FireRate;
 
+    [SerializeField] float _lifeTime;
     bool _canFire = true;
     void Start()
     {
-        
+        _father = FindFirstObjectByType<Poubelle>();
+        StartCoroutine(LifeTime(_lifeTime));
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class Spawner : MonoBehaviour
     IEnumerator Fire()
     {
         _canFire = false;
-        yield return new WaitForSeconds(_Fspeed);
+        yield return new WaitForSeconds(_FireRate);
         foreach (GameObject Sp in _spawnPoints)
         {
            GameObject bullet = Instantiate(_projToSpawn,Sp.transform.position,Sp.transform.rotation);
@@ -58,5 +59,11 @@ public class Spawner : MonoBehaviour
             _canFire = true;
         }
         
+    }
+
+    IEnumerator LifeTime(float amout)
+    {
+        yield return new WaitForSeconds(amout);
+        Destroy(gameObject);
     }
 }

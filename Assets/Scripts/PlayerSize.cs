@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerSize : MonoBehaviour
@@ -10,21 +9,11 @@ public class PlayerSize : MonoBehaviour
     private void OnEnable()
     {
         transform.localScale = new Vector3(_playerSize, _playerSize, _playerSize);
-        _styleZone.radius = _playerSize * 1.08f;
-    }
-    void Start()
-    {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _styleZone.radius = _playerSize * 2f;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, _styleZone.radius);
+        Gizmos.DrawWireSphere(this.transform.position, _styleZone.radius / 2);
     }
 }

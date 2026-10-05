@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
@@ -11,7 +10,7 @@ public class PlayerLife : MonoBehaviour
     void Start()
     {
         _circleCollider = GetComponent<CircleCollider2D>();
-        
+        _hitbox = FindFirstObjectByType<CircleCollider2D>();
     }
 
     private void FixedUpdate()
@@ -19,17 +18,6 @@ public class PlayerLife : MonoBehaviour
         if (_lifePoint <= 0)
         {
             Death();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        {
-            if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
-            {
-                print("boom");
-                SetHp(-1);
-            }
         }
     }
 
@@ -41,8 +29,7 @@ public class PlayerLife : MonoBehaviour
             Death();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
         {
@@ -50,9 +37,9 @@ public class PlayerLife : MonoBehaviour
             SetHp(-1);
         }
     }
-
     private void Death()
     {
         Debug.Log("you dead broda");
+        Destroy(gameObject);
     }
 }
