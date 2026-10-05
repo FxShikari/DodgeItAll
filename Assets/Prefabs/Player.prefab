@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 1272012046536868823}
   - component: {fileID: 3821934800466624000}
   - component: {fileID: 3552191698291626434}
-  - component: {fileID: 1929470060670976938}
   - component: {fileID: 5580597239238985330}
+  - component: {fileID: 1929470060670976938}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -147,9 +147,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   _projectileLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   _lifePoint: 1
-  _circleCollider: {fileID: 0}
+  _circleCollider: {fileID: 1929470060670976938}
+--- !u!114 &5580597239238985330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385347329411552868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f2896410bcb45a3a7bde0b6aa4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSize
+  _playerSize: 1
+  _styleZone: {fileID: 7687831415691700192}
 --- !u!58 &1929470060670976938
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -186,20 +200,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5580597239238985330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385347329411552868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f2896410bcb45a3a7bde0b6aa4a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSize
-  _playerSize: 1
-  _styleZone: {fileID: 7687831415691700192}
 --- !u!1 &8569716209640121696
 GameObject:
   m_ObjectHideFlags: 0

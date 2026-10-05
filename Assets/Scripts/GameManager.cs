@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]float _timer;
     void Start()
     {
-        Time.timeScale = 0.25f;
+        //Time.timeScale = 0.25f;
         SetOfCursor();
         AddPoint(0);
     }

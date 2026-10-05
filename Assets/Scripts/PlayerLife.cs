@@ -29,8 +29,7 @@ public class PlayerLife : MonoBehaviour
             Death();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
         {
@@ -38,7 +37,6 @@ public class PlayerLife : MonoBehaviour
             SetHp(-1);
         }
     }
-
     private void Death()
     {
         Debug.Log("you dead broda");

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7662531079307275078}
   - component: {fileID: 5853878755366318258}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7430182032549733698}
   - component: {fileID: 419710777254597664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +118,7 @@ MonoBehaviour:
   _detonationTime: 5
   _follow: 0
   _target: {fileID: 0}
+  _previewExplosion: {fileID: 7476110086952334540}
 --- !u!1 &7476110086952334540
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092647282916262395}
   - component: {fileID: 5725608373019347724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BombZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
