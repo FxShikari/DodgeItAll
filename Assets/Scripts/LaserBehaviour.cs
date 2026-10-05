@@ -6,21 +6,16 @@ public class LaserBehaviour : MonoBehaviour
 
     [SerializeField] private Collider2D _rayon;
     [SerializeField] private int _chargeTime = 3;
-    [SerializeField] private GameObject _target;
+    [SerializeField] private PlayerMouvement _target;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _target = FindFirstObjectByType<PlayerMouvement>();
         _rayon.enabled = false;
         StartCoroutine(LaserShoot());
         LaserAim();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void LaserAim()
