@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2538119650417592924}
   - component: {fileID: 7687831415691700192}
   - component: {fileID: 4252867397242934219}
-  - component: {fileID: 1626232820772414583}
   m_Layer: 11
   m_Name: Style zone
   m_TagString: Untagged
@@ -85,33 +84,6 @@ MonoBehaviour:
   _projectileLayer:
     serializedVersion: 2
     m_Bits: 1024
---- !u!50 &1626232820772414583
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279550762584440042}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &6385347329411552868
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847609dea62b92d44ac9497ecb839dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
+  _projectileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _lifePoint: 1
+  _circleCollider: {fileID: 0}
 --- !u!58 &1929470060670976938
 CircleCollider2D:
   m_ObjectHideFlags: 0
