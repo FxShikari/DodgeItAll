@@ -11,7 +11,7 @@ public class PlayerLife : MonoBehaviour
     void Start()
     {
         _circleCollider = GetComponent<CircleCollider2D>();
-
+        
     }
 
     private void FixedUpdate()
