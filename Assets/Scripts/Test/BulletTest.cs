@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class BulletTest : MonoBehaviour
 {
+    [SerializeField] bool _moving;
+    [SerializeField] float _speed;
     private void Start()
     {
         StartCoroutine(death());
     }
     void Update()
     {
-        transform.Translate(Vector3.up * 3 * Time.deltaTime);
+        if (_moving)
+        {
+            transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        }
+
+
     }
 
     IEnumerator death()

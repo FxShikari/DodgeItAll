@@ -9,15 +9,15 @@ public class Spawner : MonoBehaviour
     [SerializeField] bool _spin;
     [SerializeField] bool _move;
 
-    [SerializeField] Transform _target;
     [SerializeField] float _Mspeed;
     [SerializeField] float _Rspeed;
     [SerializeField] float _Fspeed;
 
+    [SerializeField] float _lifeTime;
     bool _canFire = true;
     void Start()
     {
-        
+        StartCoroutine(LifeTime(_lifeTime));
     }
 
     // Update is called once per frame
@@ -58,5 +58,11 @@ public class Spawner : MonoBehaviour
             _canFire = true;
         }
         
+    }
+
+    IEnumerator LifeTime(float amout)
+    {
+        yield return new WaitForSeconds(amout);
+        Destroy(gameObject);
     }
 }
