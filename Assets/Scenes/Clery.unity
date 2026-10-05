@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: 3293628541780973738, guid: 13b1e4453c1b22d40892495e14790c85, type: 3}
   - {fileID: 8618274742695058727, guid: f5d694ef3b875fa47853c362af2aba3a, type: 3}
   - {fileID: 1281933513322625042, guid: bc6b34ffe38eb0d48a9f71022f067501, type: 3}
-  _spawnRate: 3
+  _spawnRate: 5
 --- !u!4 &79484400
 Transform:
   m_ObjectHideFlags: 0
