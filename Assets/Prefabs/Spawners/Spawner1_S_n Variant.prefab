@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 6168757766670460291, guid: 5b70ba0513836d4499a716257702e647, type: 3}
       propertyPath: _projToSpawn
       value: 
-      objectReference: {fileID: 236924117405948067, guid: 5fdff257c91b23e418ed2d5baa96b6f7, type: 3}
+      objectReference: {fileID: 1899647865698841268, guid: 25f9a674d80fb7045988661c30035bb6, type: 3}
     - target: {fileID: 7623568019186961820, guid: 5b70ba0513836d4499a716257702e647, type: 3}
       propertyPath: m_Name
       value: Spawner1_S_n Variant

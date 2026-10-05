@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7135220020944732169, guid: 25f9a674d80fb7045988661c30035bb6, type: 3}
       propertyPath: _speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7135220020944732169, guid: 25f9a674d80fb7045988661c30035bb6, type: 3}
       propertyPath: _zigzag

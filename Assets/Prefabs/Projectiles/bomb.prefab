@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bomb
   _collider: {fileID: 5853878755366318258}
-  _detonationTime: 5
+  _detonationTime: 3
   _follow: 0
   _target: {fileID: 0}
   _previewExplosion: {fileID: 7476110086952334540}

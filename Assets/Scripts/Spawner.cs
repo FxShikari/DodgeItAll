@@ -5,7 +5,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject _projToSpawn;
     [SerializeField] GameObject[] _spawnPoints;
-    [SerializeField] GameObject _father;
+    [SerializeField] Poubelle _father;
     [SerializeField] bool _spin;
     [SerializeField] bool _move;
 
@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     bool _canFire = true;
     void Start()
     {
+        _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
     }
 

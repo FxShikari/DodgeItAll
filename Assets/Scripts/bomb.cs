@@ -17,7 +17,10 @@ public class bomb : MonoBehaviour
     void Start()
     {
         _target = FindFirstObjectByType<PlayerMouvement>();
-        transform.position = _target.transform.position;
+        if (_target != null)
+        {
+            transform.position = _target.transform.position;
+        }
         _collider.enabled = false;
         StartCoroutine (wait());
         

@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTest
   _moving: 1
-  _speed: 2
+  _zigzag: 0
+  _speed: 3
+  _zigzagPowerP: 0
+  _zigzagPowerN: 0
 --- !u!1 &6417326928772843578
 GameObject:
   m_ObjectHideFlags: 0
