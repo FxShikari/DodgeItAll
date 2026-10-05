@@ -26,8 +26,8 @@ public class bomb : MonoBehaviour
     private void Update()
     {
         _time += Time.deltaTime;
-
-        _visualpreview.transform.localScale = new Vector3(_time / _detonationTime, _time / _detonationTime, _time / _detonationTime);
+        float timeAjustement = (_time / _detonationTime) - 0.05f;
+        _visualpreview.transform.localScale = new Vector3(timeAjustement,timeAjustement, timeAjustement);
     }
     // Update is called once per frame
     void FixedUpdate()

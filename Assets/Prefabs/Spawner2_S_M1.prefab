@@ -53,7 +53,7 @@ MonoBehaviour:
   _move: 0
   _Mspeed: 0
   _Rspeed: 0
-  _Fspeed: 1
+  _FireRate: 1
   _lifeTime: 10
 --- !u!1 &6654726072967711000
 GameObject:

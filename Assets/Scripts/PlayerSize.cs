@@ -9,7 +9,7 @@ public class PlayerSize : MonoBehaviour
     private void OnEnable()
     {
         transform.localScale = new Vector3(_playerSize, _playerSize, _playerSize);
-        _styleZone.radius = _playerSize * 3f;
+        _styleZone.radius = _playerSize * 2f;
     }
 
     private void OnDrawGizmos()

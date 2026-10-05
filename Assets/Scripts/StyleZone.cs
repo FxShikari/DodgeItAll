@@ -12,7 +12,7 @@ public class StyleZone : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
         {

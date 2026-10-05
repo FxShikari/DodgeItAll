@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] float _Mspeed;
     [SerializeField] float _Rspeed;
-    [SerializeField] float _Fspeed;
+    [SerializeField] float _FireRate;
 
     [SerializeField] float _lifeTime;
     bool _canFire = true;
@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
     IEnumerator Fire()
     {
         _canFire = false;
-        yield return new WaitForSeconds(_Fspeed);
+        yield return new WaitForSeconds(_FireRate);
         foreach (GameObject Sp in _spawnPoints)
         {
            GameObject bullet = Instantiate(_projToSpawn,Sp.transform.position,Sp.transform.rotation);
