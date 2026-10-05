@@ -35,9 +35,12 @@ public class bomb : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_follow == true)
+        if (_target != null)
         {
-            transform.position = Vector2.MoveTowards (transform.position, _target.transform.position, 1 * Time.deltaTime);
+            if (_follow == true)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, 1 * Time.deltaTime);
+            }
         }
     }
 
