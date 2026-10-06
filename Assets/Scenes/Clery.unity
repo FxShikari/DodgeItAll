@@ -162,7 +162,7 @@ MonoBehaviour:
   - {fileID: 1989474935388130996, guid: 2fc63cdedf844fa458abe4cd7853fca2, type: 3}
   - {fileID: 8527817712512768972, guid: 9a30b7e3c8b51234e9bde6388f68f162, type: 3}
   - {fileID: 7288664191438214730, guid: 4754c43952b2fde4c89b5a6242ae12ae, type: 3}
-  _spawnRate: 4.5
+  _spawnRate: 5
   _playerPos: {x: 0, y: 0, z: 0}
 --- !u!4 &79484400
 Transform:
