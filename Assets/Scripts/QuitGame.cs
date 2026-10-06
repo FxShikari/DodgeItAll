@@ -1,22 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro;
 
-public class StartGame : MonoBehaviour
+public class QuitGame : MonoBehaviour
 {
-
-    [SerializeField] private float _holdTime = 5;
-
-    [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private TMP_Text _count;
-
+    [SerializeField] private int _holdTime = 5;
     Coroutine _countdown;
 
-    public void NextScene()
+    public void Quit()
     {
-        SceneManager.LoadScene("");
+        Application.Quit();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -39,12 +32,6 @@ public class StartGame : MonoBehaviour
     IEnumerator StartAfterCountdown()
     {
         yield return new WaitForSeconds(_holdTime);
-        Debug.Log("StartGame");
+        Debug.Log("QuitGame");
     }
-
-    private void FixedUpdate()
-    {
-        _count = _holdTime.ToString();
-    }
-
 }
