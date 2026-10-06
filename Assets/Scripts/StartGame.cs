@@ -9,10 +9,14 @@ public class StartGame : MonoBehaviour
 
     [SerializeField] private float _holdTime = 5;
 
-    [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private TMP_Text _count;
+    [SerializeField] private TextMeshProUGUI _countdownText;
 
     Coroutine _countdown;
+
+    void Start()
+    {
+        
+    }
 
     public void NextScene()
     {
@@ -23,7 +27,7 @@ public class StartGame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _countdown = StartCoroutine(StartAfterCountdown());
+            _countdown = StartCoroutine(Countdown());
         }
     }
 
@@ -33,18 +37,27 @@ public class StartGame : MonoBehaviour
         {
             StopCoroutine(_countdown);
             _countdown = null;
+            _countdownText.text = "";
         }
     }
 
-    IEnumerator StartAfterCountdown()
+
+    IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(_holdTime);
+        float remaining = _holdTime;
+        while (remaining > 0)
+        {
+            _countdownText.text = Mathf.CeilToInt(remaining).ToString();
+            remaining -= Time.deltaTime;
+            yield return null;
+        }
+        _countdownText.text = "0";
         Debug.Log("StartGame");
     }
 
     private void FixedUpdate()
     {
-        _count = _holdTime.ToString();
+        _countdownText.SetText(_holdTime.ToString());
     }
 
 }
