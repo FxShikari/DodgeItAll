@@ -33,7 +33,7 @@ public class SpawnerManager : MonoBehaviour
 
     private bool IsPlayerHere(Vector3 spawnPos)
     {
-        if (Vector3.Distance(spawnPos, _playerPos) < 1)
+        if (Vector3.Distance(spawnPos, _playerPos) < 10)
         {
             return true;
         }
@@ -46,7 +46,7 @@ public class SpawnerManager : MonoBehaviour
     private Vector3 WhereToSpawn()
     {
         Vector3 here = new Vector3(RandomInt(-8, 8), RandomInt(-4, 4), 0);
-        if (IsPlayerHere(here))
+        if (IsPlayerHere(here) == true)
         {
             return WhereToSpawn();
         }
@@ -67,5 +67,15 @@ public class SpawnerManager : MonoBehaviour
     public void StarterParckProMax()
     {
         StartCoroutine(Spawn());
+    }
+
+    IEnumerator UpSpawn()
+    {
+        if (_spawnRate >= 3f)
+        {
+            yield return new WaitForSeconds(15);
+            _spawnRate += -0.1f;
+            UpSpawn();
+        }
     }
 }

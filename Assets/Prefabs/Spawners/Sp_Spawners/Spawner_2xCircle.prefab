@@ -54,4 +54,4 @@ MonoBehaviour:
   _Mspeed: 0
   _Rspeed: 0
   _FireRate: 1
-  _lifeTime: 1
+  _lifeTime: 1.3

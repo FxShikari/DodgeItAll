@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     {
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
+        StartCoroutine(Delay());
     }
 
     // Update is called once per frame
@@ -81,5 +82,13 @@ public class Spawner : MonoBehaviour
     {
         int result = Random.Range(min, max);
         return result;
+    }
+
+    IEnumerator Delay()
+    {
+        _canFire = false;
+        yield return new WaitForSeconds(1);
+        _canFire = true;
+        StartCoroutine(Fire());
     }
 }

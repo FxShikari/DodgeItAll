@@ -87,7 +87,7 @@ MonoBehaviour:
   _randomSpawn: 1
   _Mspeed: 0
   _Rspeed: 0
-  _FireRate: 1
+  _FireRate: 0.8
   _lifeTime: 1
 --- !u!1001 &4603420985468525374
 PrefabInstance:
