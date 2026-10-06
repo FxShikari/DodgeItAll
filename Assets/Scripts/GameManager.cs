@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
         if (_isStarted == false)
         {
             _countdown -= Time.deltaTime;
-            _decompte.text = ((int)_countdown + 1).ToString();
+            _decompte.text = ((int)_countdown).ToString();
+            if ((int)_countdown == 0)
+            {
+                _decompte.text = ("DodgeItAll");
+            }
             if (_countdown <= -1)
             {
                 StartGame();
