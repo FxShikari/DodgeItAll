@@ -7,7 +7,7 @@ using TMPro;
 public class StartGame : MonoBehaviour
 {
 
-    [SerializeField] private float _holdTime = 5;
+    [SerializeField] private float _holdTime = 3;
 
     [SerializeField] private TextMeshProUGUI _countdownText;
 
