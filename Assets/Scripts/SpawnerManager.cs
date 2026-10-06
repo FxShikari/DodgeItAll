@@ -6,6 +6,7 @@ public class SpawnerManager : MonoBehaviour
     bool _canSpawn = true;
     [SerializeField] Spawner[] _spawnerList;
     [SerializeField] float _spawnRate;
+    private bool _stop;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,11 +18,14 @@ public class SpawnerManager : MonoBehaviour
        
         if (_canSpawn)
         {
-            Spawner spawners = Instantiate(_spawnerList[RandomInt(0,_spawnerList.Length)],new Vector3(RandomInt(-8,8),RandomInt(-4,4),0),new Quaternion(0,0,RandomInt(-180,180),0));
-            _canSpawn = false;
-            yield return new WaitForSeconds(_spawnRate);
-            _canSpawn = true;
-            StartCoroutine(Spawn());
+            if (_stop != true)
+            {
+                Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], new Vector3(RandomInt(-8, 8), RandomInt(-4, 4), 0), new Quaternion(0, 0, RandomInt(-180, 180), 0));
+                _canSpawn = false;
+                yield return new WaitForSeconds(_spawnRate);
+                _canSpawn = true;
+                StartCoroutine(Spawn()); 
+            }
         }
        
     }
@@ -30,5 +34,10 @@ public class SpawnerManager : MonoBehaviour
     {
        int result = Random.Range(min, max);
         return result;
+    }
+
+    public void Stop()
+    {
+        _stop = true;
     }
 }

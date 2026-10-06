@@ -14,7 +14,10 @@ public class LaserBehaviour : MonoBehaviour
     void Start()
     {
         _target = FindFirstObjectByType<PlayerMouvement>();
-        LaserAim();
+        if (_target != null)
+        {
+            LaserAim();
+        }
         StartCoroutine(LaserShoot());
     }
 

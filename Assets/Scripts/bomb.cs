@@ -1,11 +1,12 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class bomb : MonoBehaviour
 {
-    [SerializeField] private Collider2D _collider;
+    [SerializeField] bool _Nbomb = false;
+    [SerializeField] private GameObject _collider;
     [SerializeField] private int _detonationTime = 5;
+    [SerializeField] private int _radTime = 5;
     [SerializeField] private bool _follow;
     [SerializeField] private PlayerMouvement _target;
 
@@ -17,11 +18,11 @@ public class bomb : MonoBehaviour
     void Start()
     {
         _target = FindFirstObjectByType<PlayerMouvement>();
+        _collider.SetActive(false);
         if (_target != null)
         {
             transform.position = _target.transform.position;
         }
-        _collider.enabled = false;
         StartCoroutine (wait());
         
     }
@@ -29,7 +30,7 @@ public class bomb : MonoBehaviour
     private void Update()
     {
         _time += Time.deltaTime;
-        float timeAjustement = (_time / _detonationTime) - 0.05f;
+        float timeAjustement = (_time / _detonationTime);
         _visualpreview.transform.localScale = new Vector3(timeAjustement,timeAjustement, timeAjustement);
     }
     // Update is called once per frame
@@ -48,22 +49,29 @@ public class bomb : MonoBehaviour
     {
         Debug.Log("explosion");
         _previewExplosion.SetActive (false);
-        _collider.enabled = true;
-        StartCoroutine(Stop());
+        _collider.SetActive (true);
+        
     }
 
     IEnumerator Stop()
     {
         yield return new WaitForSeconds(0.1f);
-        _collider.enabled = false;
         Destroy(gameObject);
     }
     IEnumerator wait()
     {
-        _follow = true;
+        if (_Nbomb == false)
+        {
+            _follow = true;
+        }
         Debug.Log("waiting");
         yield return new WaitForSeconds(_detonationTime);
         _follow = false;
         fire();
+        if (_Nbomb)
+        {
+            yield return new WaitForSeconds(_radTime);
+        }
+        StartCoroutine(Stop());
     }
 }
