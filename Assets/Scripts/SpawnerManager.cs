@@ -12,7 +12,6 @@ public class SpawnerManager : MonoBehaviour
     void Start()
     {
         _playerPos = FindFirstObjectByType<PlayerMouvement>().gameObject.transform.position;
-        StartCoroutine(Spawn());
     }
     
     IEnumerator Spawn()
@@ -20,7 +19,7 @@ public class SpawnerManager : MonoBehaviour
        
         if (_canSpawn)
         {
-            if (_stop != true)
+            if (_stop == false)
             {
                 Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], WhereToSpawn(), new Quaternion(0, 0, RandomInt(-180, 180), 0));
                 _canSpawn = false;
@@ -63,5 +62,10 @@ public class SpawnerManager : MonoBehaviour
     public void Stop()
     {
         _stop = true;
+    }
+
+    public void StarterParckProMax()
+    {
+        StartCoroutine(Spawn());
     }
 }
