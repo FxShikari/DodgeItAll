@@ -6,10 +6,12 @@ public class SpawnerManager : MonoBehaviour
     bool _canSpawn = true;
     [SerializeField] Spawner[] _spawnerList;
     [SerializeField] float _spawnRate;
+    [SerializeField] Vector3 _playerPos;
     private bool _stop;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _playerPos = FindFirstObjectByType<PlayerMouvement>().gameObject.transform.position;
         StartCoroutine(Spawn());
     }
     
@@ -20,7 +22,7 @@ public class SpawnerManager : MonoBehaviour
         {
             if (_stop != true)
             {
-                Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], new Vector3(RandomInt(-8, 8), RandomInt(-4, 4), 0), new Quaternion(0, 0, RandomInt(-180, 180), 0));
+                Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], WhereToSpawn(), new Quaternion(0, 0, RandomInt(-180, 180), 0));
                 _canSpawn = false;
                 yield return new WaitForSeconds(_spawnRate);
                 _canSpawn = true;
@@ -28,6 +30,28 @@ public class SpawnerManager : MonoBehaviour
             }
         }
        
+    }
+
+    private bool IsPlayerHere(Vector3 spawnPos)
+    {
+        if (Vector3.Distance(spawnPos, _playerPos) < 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private Vector3 WhereToSpawn()
+    {
+        Vector3 here = new Vector3(RandomInt(-8, 8), RandomInt(-4, 4), 0);
+        if (IsPlayerHere(here))
+        {
+            return WhereToSpawn();
+        }
+        else { return here; }
     }
 
     private int RandomInt(int min, int max)
