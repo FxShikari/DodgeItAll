@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -29,10 +30,21 @@ public class GameManager : MonoBehaviour
     {
         _playerHP.SetHp(amount);
     }
+    
+    IEnumerator TimePoint()
+    {
+        yield return new WaitForSeconds(5);
+        AddPoint(10);
+    }
 
     public void AddPoint(int amount)
     {
         _playerScore += amount;
         _scoreTxt.text = _playerScore.ToString();
+    }
+
+    private void StartGame()
+    {
+
     }
 }

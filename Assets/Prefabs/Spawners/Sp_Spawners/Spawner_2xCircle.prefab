@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2531137003681596822}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.28966, y: 3.13638, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,6 +50,7 @@ MonoBehaviour:
   _father: {fileID: 0}
   _spin: 0
   _move: 0
+  _randomSpawn: 0
   _Mspeed: 0
   _Rspeed: 0
   _FireRate: 1
