@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
             _decompte.text = ((int)_countdown).ToString();
             if ((int)_countdown == 0)
             {
+
                 _decompte.text = ("DodgeItAll");
             }
             if (_countdown <= -1)
@@ -66,7 +67,10 @@ public class GameManager : MonoBehaviour
     {
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
-        _spawnerManager.StarterParckProMax();
+        if (_spawnerManager != null)
+        {
+            _spawnerManager.StarterParckProMax();
+        }
         StartCoroutine(TimePoint());
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &297942593844051211
+--- !u!1 &4855988263358967475
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8150978989539138449}
-  - component: {fileID: 1989474935388130996}
+  - component: {fileID: 8949714039987807936}
+  - component: {fileID: 3355067571039610106}
   m_Layer: 0
-  m_Name: SpawnerN
+  m_Name: Spawner_ExplodingCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8150978989539138449
+--- !u!4 &8949714039987807936
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297942593844051211}
+  m_GameObject: {fileID: 4855988263358967475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.24908, y: -0.04473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1989474935388130996
+--- !u!114 &3355067571039610106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297942593844051211}
+  m_GameObject: {fileID: 4855988263358967475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8266db3374c4d9c4fb93c7cfecd4a441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  _projToSpawn: {fileID: 1850578998611802720, guid: 30b588d37a70edc43899ecf4b639da39, type: 3}
-  _spawnPoints:
-  - {fileID: 297942593844051211}
+  _projToSpawn: {fileID: 6532790947186562566, guid: fcfd52bfe83f4d04a8a3f71398c4a235, type: 3}
+  _spawnPoints: []
   _father: {fileID: 0}
   _spin: 0
   _move: 0
-  _randomSpawn: 0
+  _randomSpawn: 1
   _Mspeed: 0
   _Rspeed: 0
-  _FireRate: 1.5
+  _FireRate: 0.3
   _lifeTime: 5
