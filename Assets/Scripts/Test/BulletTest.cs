@@ -46,7 +46,7 @@ public class BulletTest : MonoBehaviour
 
     IEnumerator death()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5.5f);
         Destroy(gameObject);
     }
 }
