@@ -74,11 +74,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
-
-    public void SetPlayerHP(int amount)
-    {
-        _playerHP.SetHp(amount);
-    }
     
     IEnumerator TimePoint()
     {
@@ -102,5 +97,10 @@ public class GameManager : MonoBehaviour
         {
             _spawnerManager.StarterParckProMax();
         }
+    }
+
+    public void PlayerHpAmount(int amount)
+    {
+        _playerHp = amount;
     }
 }

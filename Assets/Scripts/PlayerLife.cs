@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
 
     void Start()
     {
+        SetHp(GameManager.Instance._playerHp);
         _circleCollider = GetComponent<CircleCollider2D>();
         _hitbox = FindFirstObjectByType<CircleCollider2D>();
     }
