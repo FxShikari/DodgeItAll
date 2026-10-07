@@ -215,6 +215,7 @@ MonoBehaviour:
   _decompte: {fileID: 1435570558}
   _countdown: 4
   _isStarted: 0
+  _inGame: 1
 --- !u!4 &105489089
 Transform:
   m_ObjectHideFlags: 0

@@ -11,32 +11,39 @@ public class GameManager : MonoBehaviour
     [SerializeField]TMP_Text _decompte;
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
+    [SerializeField] bool _inGame = false;
     void Start()
     {
         _spawnerManager = FindFirstObjectByType<SpawnerManager>();
         //Time.timeScale = 0.25f;
         SetOfCursor();
-        AddPoint(0);
+        if (_inGame)
+        {
+            AddPoint(0);
+
+        }
     }
 
     private void Update()
     {
-        if (_isStarted == false)
+        if (_inGame)
         {
-            _countdown -= Time.deltaTime;
-            _decompte.text = ((int)_countdown).ToString();
-            if ((int)_countdown == 0)
+            if (_isStarted == false)
             {
+                _countdown -= Time.deltaTime;
+                _decompte.text = ((int)_countdown).ToString();
+                if ((int)_countdown == 0)
+                {
 
-                _decompte.text = ("DodgeItAll");
-            }
-            if (_countdown <= -1)
-            {
-                StartGame();
-                _isStarted = true;
+                    _decompte.text = ("DodgeItAll");
+                }
+                if (_countdown <= -1)
+                {
+                    StartGame();
+                    _isStarted = true;
+                }
             }
         }
-        
     }
 
     private void SetOfCursor()
