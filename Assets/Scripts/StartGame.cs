@@ -15,12 +15,12 @@ public class StartGame : MonoBehaviour
 
     void Start()
     {
-        
+        _countdownText.enabled = false;
     }
 
     public void NextScene()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Clery");
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -28,6 +28,7 @@ public class StartGame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _countdown = StartCoroutine(Countdown());
+            _countdownText.enabled = true;
         }
     }
 
@@ -38,6 +39,7 @@ public class StartGame : MonoBehaviour
             StopCoroutine(_countdown);
             _countdown = null;
             _countdownText.text = "";
+            _countdownText.enabled = false;
         }
     }
 
@@ -53,11 +55,7 @@ public class StartGame : MonoBehaviour
         }
         _countdownText.text = "0";
         Debug.Log("StartGame");
-    }
-
-    private void FixedUpdate()
-    {
-        _countdownText.SetText(_holdTime.ToString());
+        NextScene();
     }
 
 }

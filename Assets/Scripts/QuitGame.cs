@@ -1,11 +1,19 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class QuitGame : MonoBehaviour
 {
     [SerializeField] private int _holdTime = 5;
+    [SerializeField] private TextMeshProUGUI _countdownText;
+
     Coroutine _countdown;
+
+    void Start()
+    {
+        _countdownText.enabled = false;
+    }
 
     public void Quit()
     {
@@ -16,7 +24,8 @@ public class QuitGame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _countdown = StartCoroutine(StartAfterCountdown());
+            _countdown = StartCoroutine(Countdown());
+            _countdownText.enabled = true;
         }
     }
 
@@ -26,12 +35,22 @@ public class QuitGame : MonoBehaviour
         {
             StopCoroutine(_countdown);
             _countdown = null;
+            _countdownText.text = "";
+            _countdownText.enabled = false;
         }
     }
 
-    IEnumerator StartAfterCountdown()
+    IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(_holdTime);
+        float remaining = _holdTime;
+        while (remaining > 0)
+        {
+            _countdownText.text = Mathf.CeilToInt(remaining).ToString();
+            remaining -= Time.deltaTime;
+            yield return null;
+        }
+        _countdownText.text = "0";
         Debug.Log("QuitGame");
+        Quit();
     }
 }
