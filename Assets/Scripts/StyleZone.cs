@@ -17,7 +17,7 @@ public class StyleZone : MonoBehaviour
         if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
         {
             print("projectile");
-            gameManager.AddPoint(10);
+            gameManager.AddPoint(15);
         }
     }
 

@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] Poubelle _father;
     [SerializeField] bool _spin;
     [SerializeField] bool _move;
+    [SerializeField] bool _randomSpawn = false;
 
     [SerializeField] float _Mspeed;
     [SerializeField] float _Rspeed;
@@ -19,6 +20,7 @@ public class Spawner : MonoBehaviour
     {
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
+        StartCoroutine(Delay());
     }
 
     // Update is called once per frame
@@ -52,18 +54,41 @@ public class Spawner : MonoBehaviour
     {
         _canFire = false;
         yield return new WaitForSeconds(_FireRate);
-        foreach (GameObject Sp in _spawnPoints)
+
+        if (_randomSpawn)
         {
-           GameObject bullet = Instantiate(_projToSpawn,Sp.transform.position,Sp.transform.rotation);
+            GameObject bullet = Instantiate(_projToSpawn, new Vector3(RandomInt(-8,8),RandomInt(-4,4),0), transform.rotation);
             bullet.transform.parent = _father.transform;
             _canFire = true;
         }
-        
+        else
+        {
+            foreach (GameObject Sp in _spawnPoints)
+            {
+                GameObject bullet = Instantiate(_projToSpawn, Sp.transform.position, Sp.transform.rotation);
+                bullet.transform.parent = _father.transform;
+                _canFire = true;
+            }
+        }
     }
 
     IEnumerator LifeTime(float amout)
     {
         yield return new WaitForSeconds(amout);
         Destroy(gameObject);
+    }
+
+    private int RandomInt(int min, int max)
+    {
+        int result = Random.Range(min, max);
+        return result;
+    }
+
+    IEnumerator Delay()
+    {
+        _canFire = false;
+        yield return new WaitForSeconds(0.2f);
+        _canFire = true;
+        StartCoroutine(Fire());
     }
 }
