@@ -38,13 +38,8 @@ public class GameManager : MonoBehaviour
     {
         _spawnerManager = FindFirstObjectByType<SpawnerManager>();
         _playerHP = FindFirstObjectByType<PlayerLife>();
-        //Time.timeScale = 0.25f;
+        Time.timeScale = 0.25f;
         SetOfCursor();
-        if (_inGame)
-        {
-            AddPoint(0);
-
-        }
     }
 
     private void Update()
@@ -90,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        AddPoint(0);
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
         StartCoroutine(TimePoint());
@@ -102,5 +98,20 @@ public class GameManager : MonoBehaviour
     public void PlayerHpAmount(int amount)
     {
         _playerHp = amount;
+    }
+    public void InGame()
+    {
+        _inGame = true;
+    }
+
+    public void SetGmTxt(TMP_Text scoreTxt, TMP_Text countdownTxt)
+    {
+        _scoreTxt = scoreTxt;
+        _decompte = countdownTxt;
+    }
+
+    public void SetSpawnManager(SpawnerManager sp)
+    {
+        _spawnerManager = sp;
     }
 }
