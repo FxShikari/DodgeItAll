@@ -119,37 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1369852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1369853}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1369853
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369852}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1145764823}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79484398
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &79484399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +162,9 @@ MonoBehaviour:
   - {fileID: 1989474935388130996, guid: 2fc63cdedf844fa458abe4cd7853fca2, type: 3}
   - {fileID: 8527817712512768972, guid: 9a30b7e3c8b51234e9bde6388f68f162, type: 3}
   - {fileID: 7288664191438214730, guid: 4754c43952b2fde4c89b5a6242ae12ae, type: 3}
+  - {fileID: 3355067571039610106, guid: 316a11070ae2c154d884c9b8733605a0, type: 3}
+  - {fileID: 9042637240733030133, guid: b3a5b39888b6a354d9325646042e0dec, type: 3}
+  - {fileID: 1910832952754075501, guid: 23578eb7e8bb018468437f7fcf1bb8d5, type: 3}
   _spawnRate: 5
   _playerPos: {x: 0, y: 0, z: 0}
 --- !u!4 &79484400
@@ -306,10 +278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -763,62 +735,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933521221}
   m_CullTransparentMesh: 1
---- !u!1 &1145764821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1145764823}
-  - component: {fileID: 1145764822}
-  m_Layer: 0
-  m_Name: Spawner_LaserCircle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1145764822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145764821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8266db3374c4d9c4fb93c7cfecd4a441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  _projToSpawn: {fileID: 2296751366661528370, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
-  _spawnPoints:
-  - {fileID: 1369852}
-  _father: {fileID: 0}
-  _spin: 1
-  _move: 0
-  _randomSpawn: 0
-  _Mspeed: 0
-  _Rspeed: 180
-  _FireRate: 0.1
-  _lifeTime: 5
---- !u!4 &1145764823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145764821}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1369853}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435570556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,4 +1024,3 @@ SceneRoots:
   - {fileID: 1907685425}
   - {fileID: 642687698}
   - {fileID: 79484400}
-  - {fileID: 1145764823}
