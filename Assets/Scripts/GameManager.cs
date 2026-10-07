@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,27 @@ public class GameManager : MonoBehaviour
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
     [SerializeField] bool _inGame = false;
+    public int _playerHp = 1;
+
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, kill myself NOW.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
+
+
     void Start()
     {
         _spawnerManager = FindFirstObjectByType<SpawnerManager>();

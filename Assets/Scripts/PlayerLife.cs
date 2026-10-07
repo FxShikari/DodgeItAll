@@ -1,11 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
     CircleCollider2D _hitbox;
     [SerializeField] LayerMask _projectileLayer;
-    [SerializeField] private int _lifePoint = 1;
+    [SerializeField] private int _lifePoint;
     [SerializeField] private CircleCollider2D _circleCollider;
+
+    bool _invincible;
+
+    private void Awake()
+    {
+        SetHp(GameManager.Instance._playerHp);
+    }
 
     void Start()
     {
@@ -23,10 +31,14 @@ public class PlayerLife : MonoBehaviour
 
     public void SetHp(int amount)
     {
-        _lifePoint += amount;
-        if (_lifePoint <= 0)
+        if (_invincible == false)
         {
-            Death();
+            _lifePoint += amount;
+            if (_lifePoint <= 0)
+            {
+                Death();
+            }
+            InvincibleTime();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,5 +53,12 @@ public class PlayerLife : MonoBehaviour
     {
         Debug.Log("you dead broda");
         Destroy(gameObject);
+    }
+
+    IEnumerator InvincibleTime()
+    {
+        _invincible = true;
+        yield return new WaitForSeconds(1.5f);
+        _invincible = false;
     }
 }
