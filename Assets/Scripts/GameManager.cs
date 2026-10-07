@@ -74,10 +74,10 @@ public class GameManager : MonoBehaviour
     {
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
+        StartCoroutine(TimePoint());
         if (_spawnerManager != null)
         {
             _spawnerManager.StarterParckProMax();
         }
-        StartCoroutine(TimePoint());
     }
 }
