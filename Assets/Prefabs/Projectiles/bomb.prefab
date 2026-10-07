@@ -178,7 +178,7 @@ MonoBehaviour:
   _collider: {fileID: 3869621952506518602}
   _detonationTime: 3
   _radTime: 5
-  _follow: 0
+  _Move: 1
   _target: {fileID: 0}
   _previewExplosion: {fileID: 7476110086952334540}
   _visualpreview: {fileID: 6130501879636745064}

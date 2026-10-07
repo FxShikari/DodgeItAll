@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266db3374c4d9c4fb93c7cfecd4a441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  _projToSpawn: {fileID: 6532790947186562566, guid: fcfd52bfe83f4d04a8a3f71398c4a235, type: 3}
+  _projToSpawn: {fileID: 3429554882140447392, guid: 959944b3a21cf024b850963f6da6b9f7, type: 3}
   _spawnPoints: []
   _father: {fileID: 0}
   _spin: 0
@@ -52,5 +52,5 @@ MonoBehaviour:
   _randomSpawn: 1
   _Mspeed: 0
   _Rspeed: 0
-  _FireRate: 0.3
+  _FireRate: 0.5
   _lifeTime: 5

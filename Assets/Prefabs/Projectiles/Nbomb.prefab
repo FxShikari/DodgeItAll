@@ -50,7 +50,7 @@ MonoBehaviour:
   _collider: {fileID: 6333191894923194056}
   _detonationTime: 5
   _radTime: 5
-  _follow: 0
+  _Move: 1
   _target: {fileID: 0}
   _previewExplosion: {fileID: 3199598938570488657}
   _visualpreview: {fileID: 2212624426202764533}

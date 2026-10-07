@@ -5,9 +5,10 @@ public class bomb : MonoBehaviour
 {
     [SerializeField] bool _Nbomb = false;
     [SerializeField] private GameObject _collider;
-    [SerializeField] private int _detonationTime = 5;
+    [SerializeField] private float _detonationTime = 5;
     [SerializeField] private int _radTime = 5;
-    [SerializeField] private bool _follow;
+    private bool _follow;
+    [SerializeField] private bool _Move = true;
     [SerializeField] private PlayerMouvement _target;
 
     [SerializeField] GameObject _previewExplosion;
@@ -36,12 +37,15 @@ public class bomb : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_target != null)
+        if (_Move)
         {
-            if (_follow == true)
+            if (_target != null)
             {
-                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, 1 * Time.deltaTime);
-            }
+                if (_follow == true)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, 1 * Time.deltaTime);
+                }
+            } 
         }
     }
 

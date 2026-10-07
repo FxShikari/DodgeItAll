@@ -8,15 +8,19 @@ public class LaserBehaviour : MonoBehaviour
     [SerializeField] private GameObject _visualpreview;
     [SerializeField] private GameObject _laser;
     float _time;
+   [SerializeField] bool _lookAt;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _target = FindFirstObjectByType<PlayerMouvement>();
-        if (_target != null)
+        if (_lookAt)
         {
-            LaserAim();
+            if (_target != null)
+            {
+                LaserAim();
+            } 
         }
         StartCoroutine(LaserShoot());
     }
@@ -43,7 +47,7 @@ public class LaserBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(_chargeTime);
         _laser.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

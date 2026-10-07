@@ -282,6 +282,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _visualpreview: {fileID: 454418760855323831}
   _laser: {fileID: 508590985784371158}
+  _lookAt: 1
 --- !u!61 &1699437125635524915
 BoxCollider2D:
   m_ObjectHideFlags: 0
