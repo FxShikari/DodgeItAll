@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class facilité : MonoBehaviour
 {
 
     public int _lifeAmount;
+    [SerializeField] private TextMeshProUGUI _modeName;
+    [SerializeField] private string _modeDescription;
 
-    GameManager _manager;
+    [SerializeField] public GameManager _manager;
 
 
 
@@ -16,6 +19,8 @@ public class facilité : MonoBehaviour
         {
             _manager.SetPlayerHP(_lifeAmount);
             Debug.Log("HP Change");
+            _modeName.text = _modeDescription;
+            
         }
     }
 }

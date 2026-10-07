@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _spawnerManager = FindFirstObjectByType<SpawnerManager>();
+        _playerHP = FindFirstObjectByType<PlayerLife>();
         //Time.timeScale = 0.25f;
         SetOfCursor();
         if (_inGame)

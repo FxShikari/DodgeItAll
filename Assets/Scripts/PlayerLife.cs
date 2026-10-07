@@ -23,7 +23,7 @@ public class PlayerLife : MonoBehaviour
 
     public void SetHp(int amount)
     {
-        _lifePoint += amount;
+        _lifePoint = amount;
         if (_lifePoint <= 0)
         {
             Death();

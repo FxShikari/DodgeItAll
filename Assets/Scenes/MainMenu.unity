@@ -439,7 +439,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _scoreTxt: {fileID: 0}
-  _timer: 0
+  _decompte: {fileID: 0}
+  _countdown: 0
+  _isStarted: 0
+  _inGame: 0
 --- !u!4 &652303822
 Transform:
   m_ObjectHideFlags: 0
@@ -545,7 +548,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -777,6 +780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::facilit\xE9"
   _lifeAmount: 3
+  _modeName: {fileID: 422073723}
+  _modeDescription: Weak
+  _manager: {fileID: 652303821}
 --- !u!61 &930733200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1507,7 +1513,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1797,6 +1803,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::facilit\xE9"
   _lifeAmount: 1
+  _modeName: {fileID: 422073723}
+  _modeDescription: Challenger
+  _manager: {fileID: 652303821}
 --- !u!61 &2019611567
 BoxCollider2D:
   m_ObjectHideFlags: 0
