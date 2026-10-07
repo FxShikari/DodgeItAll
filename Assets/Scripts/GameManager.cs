@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
     [SerializeField] bool _inGame = false;
-    public int _playerHp = 1;
+    public int _playerHp = 3;
 
     public static GameManager Instance { get; private set; }
 
@@ -82,9 +83,15 @@ public class GameManager : MonoBehaviour
         _scoreTxt.text = _playerScore.ToString();
     }
 
+    private void SetPoints(int amount)
+    {
+        _playerScore = amount;
+        _scoreTxt.text = _playerScore.ToString();
+    }
+
     private void StartGame()
     {
-        AddPoint(0);
+        SetPoints(0);
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
         StartCoroutine(TimePoint());
@@ -118,5 +125,12 @@ public class GameManager : MonoBehaviour
     {
         _spawnerManager.Stop();
         StopAllCoroutines();
+        _playerHp = 3;
+        _countdown = 4;
+        _isStarted = false;
+        _inGame = false;
+        SceneManager.LoadScene(0);
+       
+        
     }
 }
