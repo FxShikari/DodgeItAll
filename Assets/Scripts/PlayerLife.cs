@@ -32,17 +32,10 @@ public class PlayerLife : MonoBehaviour
             Death();
         }
     }
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
-        {
-            print("boom");
-            SetHp(-1);
-        }
-    }*/
 
     private void Death()
     {
+        GameManager.Instance.StopGame();
         Debug.Log("you dead broda");
         Destroy(gameObject);
     }

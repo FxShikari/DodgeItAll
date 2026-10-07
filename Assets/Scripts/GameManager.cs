@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         _spawnerManager = FindFirstObjectByType<SpawnerManager>();
         _playerHP = FindFirstObjectByType<PlayerLife>();
-        Time.timeScale = 0.25f;
+        //Time.timeScale = 0.25f;
         SetOfCursor();
     }
 
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         AddPoint(10);
-        TimePoint();
+        StartCoroutine(TimePoint());
     }
 
     public void AddPoint(int amount)
@@ -113,5 +112,11 @@ public class GameManager : MonoBehaviour
     public void SetSpawnManager(SpawnerManager sp)
     {
         _spawnerManager = sp;
+    }
+
+    public void StopGame()
+    {
+        _spawnerManager.Stop();
+        StopAllCoroutines();
     }
 }
