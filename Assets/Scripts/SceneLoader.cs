@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] Animator _transition;
 
     public static SceneLoader Instance { get; private set; }
 
@@ -18,12 +19,12 @@ public class SceneLoader : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
         }
     }
 
     public IEnumerator ChangeScene(string sceneName)
     {
+        _transition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
     }

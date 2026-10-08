@@ -24,13 +24,9 @@ public class DeadScreen : MonoBehaviour
             _screenDuration -= Time.deltaTime;
             _countdownTxt.text = ((int)_screenDuration).ToString();
         }
-        if ((int)_screenDuration == 1)
+        if ((int)_screenDuration == 0)
         {
             StartCoroutine(SceneLoader.Instance.ChangeScene(_sceneToCharge));
-        }
-        if (_screenDuration < 0)
-        {
-            _deadScreen.SetActive(false);
         }
     }
 }

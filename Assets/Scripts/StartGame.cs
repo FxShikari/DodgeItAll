@@ -19,7 +19,7 @@ public class StartGame : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene("Clery");
+        StartCoroutine(SceneLoader.Instance.ChangeScene("Clery"));
     }
 
     public void OnTriggerEnter2D(Collider2D other)
