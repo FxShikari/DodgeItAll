@@ -211,8 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8fd4ad94bd90e4ea1e7a6eb27b3170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _playerScore: 0
   _scoreTxt: {fileID: 933521223}
   _decompte: {fileID: 1435570558}
+  _deadScreen: {fileID: 0}
   _countdown: 4
   _isStarted: 0
   _inGame: 1
@@ -368,10 +370,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1649260685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -451}
-  m_SizeDelta: {x: 339.73706, y: 86.1389}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 118.4}
+  m_SizeDelta: {x: 339.73706, y: 86.138916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582727709
 MonoBehaviour:
@@ -1295,6 +1297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649260685}
+  - component: {fileID: 1649260688}
   - component: {fileID: 1649260687}
   - component: {fileID: 1649260686}
   m_Layer: 5
@@ -1364,6 +1367,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649260684}
   m_CullTransparentMesh: 1
+--- !u!114 &1649260688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649260684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b22de2f7f9ec04fb1aa94c29674070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeadScreen
+  _deadScreen: {fileID: 1649260684}
+  _scoreTxt: {fileID: 1180014566}
+  _countdownTxt: {fileID: 582727709}
+  _screenDuration: 10
+  _sceneToCharge: MainMenu
 --- !u!1 &1888337782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888337783}
+  - component: {fileID: 1888337784}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -1395,6 +1416,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888337784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888337782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bc6d6d95319c04f9dba0f76cf59a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1 &1907685422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1539,7 @@ MonoBehaviour:
   _scoreTxt: {fileID: 933521223}
   _countdownTxt: {fileID: 1435570558}
   _spawnerManager: {fileID: 79484399}
+  _deadScreen: {fileID: 1649260684}
 --- !u!4 &2009068853
 Transform:
   m_ObjectHideFlags: 0
