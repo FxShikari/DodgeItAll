@@ -587,7 +587,7 @@ MonoBehaviour:
   _countdown: 4
   _isStarted: 0
   _inGame: 0
-  _playerHp: 1
+  _playerHp: 3
 --- !u!4 &652303822
 Transform:
   m_ObjectHideFlags: 0
@@ -1021,16 +1021,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929470060670976938, guid: d426d3287856c1542b28506e261646fb, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6385347329411552868, guid: d426d3287856c1542b28506e261646fb, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6385347329411552868, guid: d426d3287856c1542b28506e261646fb, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
