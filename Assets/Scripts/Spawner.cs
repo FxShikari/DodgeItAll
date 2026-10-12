@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public SpawnerManager _manager;
     [SerializeField] GameObject _projToSpawn;
     [SerializeField] GameObject[] _spawnPoints;
     [SerializeField] Poubelle _father;
@@ -57,7 +58,7 @@ public class Spawner : MonoBehaviour
 
         if (_randomSpawn)
         {
-            GameObject bullet = Instantiate(_projToSpawn, new Vector3(RandomInt(-8,8),RandomInt(-4,4),0), transform.rotation);
+            GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), transform.rotation);
             bullet.transform.parent = _father.transform;
             _canFire = true;
         }
