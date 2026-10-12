@@ -51,7 +51,6 @@ public class bomb : MonoBehaviour
 
     private void fire()
     {
-        Debug.Log("explosion");
         _previewExplosion.SetActive (false);
         _collider.SetActive (true);
         
@@ -68,7 +67,6 @@ public class bomb : MonoBehaviour
         {
             _follow = true;
         }
-        Debug.Log("waiting");
         yield return new WaitForSeconds(_detonationTime);
         _follow = false;
         fire();

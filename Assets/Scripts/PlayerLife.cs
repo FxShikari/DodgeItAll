@@ -34,7 +34,6 @@ public class PlayerLife : MonoBehaviour
             if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
             {
                 StartCoroutine(Invincible());
-                print("boom");
                 SetHp(-1);
             }
         }
@@ -46,7 +45,6 @@ public class PlayerLife : MonoBehaviour
         _blood.SetActive(true);
         yield return new WaitForSeconds(1);
         GameManager.Instance.StopGame();
-        Debug.Log("you dead broda");
         Destroy(gameObject);
     }
 

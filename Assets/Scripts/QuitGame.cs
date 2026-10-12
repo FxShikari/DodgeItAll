@@ -50,7 +50,6 @@ public class QuitGame : MonoBehaviour
             yield return null;
         }
         _countdownText.text = "0";
-        Debug.Log("QuitGame");
         Quit();
     }
 }

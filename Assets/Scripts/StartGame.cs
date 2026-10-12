@@ -53,7 +53,6 @@ public class StartGame : MonoBehaviour
             yield return null;
         }
         _countdownText.text = "0";
-        Debug.Log("StartGame");
         NextScene();
     }
 
