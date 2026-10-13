@@ -28,7 +28,6 @@ public class BulletTest : MonoBehaviour
             else
             {
                 transform.Translate(Vector3.up * _speed * Time.deltaTime);
-                print("ok");
             }
         }
     }

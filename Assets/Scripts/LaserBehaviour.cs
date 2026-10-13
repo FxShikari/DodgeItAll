@@ -6,6 +6,7 @@ public class LaserBehaviour : MonoBehaviour
     [SerializeField] private float _chargeTime = 3;
     [SerializeField] private PlayerMouvement _target;
     [SerializeField] private GameObject _visualpreview;
+    [SerializeField] private GameObject _preview;
     [SerializeField] private GameObject _laser;
     float _time;
    [SerializeField] bool _lookAt;
@@ -46,6 +47,7 @@ public class LaserBehaviour : MonoBehaviour
     IEnumerator LaserShoot()
     {
         yield return new WaitForSeconds(_chargeTime);
+        _preview.SetActive(false);
         _laser.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);

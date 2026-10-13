@@ -13,7 +13,6 @@ public class facilité : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.PlayerHpAmount(_lifeAmount);
-            Debug.Log("HP Change");
             _modeName.text = _modeDescription;
             
         }

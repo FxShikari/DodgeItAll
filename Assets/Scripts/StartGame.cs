@@ -19,7 +19,7 @@ public class StartGame : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene("Clery");
+        StartCoroutine(SceneLoader.Instance.ChangeScene("Clery"));
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +53,6 @@ public class StartGame : MonoBehaviour
             yield return null;
         }
         _countdownText.text = "0";
-        Debug.Log("StartGame");
         NextScene();
     }
 

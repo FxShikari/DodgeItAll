@@ -4,10 +4,11 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     CircleCollider2D _hitbox;
+    [SerializeField] PlayerMouvement _playerMouvement;
     [SerializeField] LayerMask _projectileLayer;
     [SerializeField] private int _lifePoint = 1;
     [SerializeField] private CircleCollider2D _circleCollider;
-    bool _invincible;
+    [SerializeField] GameObject _blood;
 
     void Start()
     {
@@ -16,28 +17,14 @@ public class PlayerLife : MonoBehaviour
         _hitbox = FindFirstObjectByType<CircleCollider2D>();
     }
 
-    private void FixedUpdate()
-    {
-        if (_lifePoint <= 0)
-        {
-            Death();
-        }
-    }
-
     public void SetHp(int amount)
     {
         _lifePoint += amount;
         if (_lifePoint <= 0)
         {
-            Death();
+            //Death();
+            StartCoroutine(TheEnd());
         }
-    }
-
-    private void Death()
-    {
-        GameManager.Instance.StopGame();
-        Debug.Log("you dead broda");
-        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,10 +34,18 @@ public class PlayerLife : MonoBehaviour
             if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
             {
                 StartCoroutine(Invincible());
-                print("boom");
                 SetHp(-1);
             }
         }
+    }
+
+    IEnumerator TheEnd()
+    {
+        _playerMouvement.enabled = false;
+        _blood.SetActive(true);
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.StopGame();
+        Destroy(gameObject);
     }
 
     IEnumerator Invincible()

@@ -1,15 +1,15 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     PlayerLife _playerHP;
-    int _playerScore;
+    public int _playerScore;
     SpawnerManager _spawnerManager;
     [SerializeField]TMP_Text _scoreTxt;
     [SerializeField]TMP_Text _decompte;
+    [SerializeField] GameObject _deadScreen;
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
     [SerializeField] bool _inGame = false;
@@ -121,16 +121,19 @@ public class GameManager : MonoBehaviour
         _spawnerManager = sp;
     }
 
+    public void SetDeadScreen(GameObject ds)
+    {
+        _deadScreen = ds;
+    }
+
     public void StopGame()
     {
+        _deadScreen.SetActive(true);
         _spawnerManager.Stop();
         StopAllCoroutines();
         _playerHp = 3;
         _countdown = 4;
         _isStarted = false;
-        _inGame = false;
-        SceneManager.LoadScene(0);
-       
-        
+        _inGame = false; 
     }
 }
