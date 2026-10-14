@@ -50,7 +50,6 @@ public class PlayerLife : MonoBehaviour
         if (_deathSound != null)
         {
             SoundManager.Instance.PlayClip(_deathSound, transform.position, 0.8f);
-            Debug.Log("ok");
         }
         _blood.SetActive(true);
         yield return new WaitForSeconds(1);

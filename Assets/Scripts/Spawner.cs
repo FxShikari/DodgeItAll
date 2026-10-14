@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         if (_spawnSfx != null) SoundManager.Instance.PlayClip(_spawnSfx, transform.position, 8);
+        _manager = FindAnyObjectByType<SpawnerManager>();
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
         StartCoroutine(Delay());

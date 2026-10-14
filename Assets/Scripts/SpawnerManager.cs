@@ -75,7 +75,7 @@ public class SpawnerManager : MonoBehaviour
             yield return new WaitForSeconds(5);
             _spawnRate += -0.1f;
             print(_spawnRate);
-            UpSpawnRate();
+            StartCoroutine(UpSpawnRate());
         }
     }
 }
