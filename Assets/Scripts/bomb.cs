@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class bomb : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class bomb : MonoBehaviour
     private bool _follow;
     [SerializeField] private bool _Move = true;
     [SerializeField] private PlayerMouvement _target;
-
+    [SerializeField] private AudioClip _explosionSfx;
     [SerializeField] GameObject _previewExplosion;
     [SerializeField] GameObject _visualpreview;
     float _time;
@@ -69,6 +70,7 @@ public class bomb : MonoBehaviour
         }
         yield return new WaitForSeconds(_detonationTime);
         _follow = false;
+        SoundManager.Instance.PlayClip(_explosionSfx, transform.position, 1);
         fire();
         if (_Nbomb)
         {

@@ -271,6 +271,7 @@ MonoBehaviour:
   _radTime: 5
   _Move: 1
   _target: {fileID: 0}
+  _explosionSfx: {fileID: 8300000, guid: 5bee6f67a7bb4b64e9b2d80bd32a5ca4, type: 3}
   _previewExplosion: {fileID: 6251015133254216925}
   _visualpreview: {fileID: 4804408309527656958}
 --- !u!1 &6251015133254216925

@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         SetPoints(0);
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
+        SoundManager.Instance.StartPlayingMusic();
         StartCoroutine(TimePoint());
         if (_spawnerManager != null)
         {
@@ -128,6 +129,7 @@ public class GameManager : MonoBehaviour
 
     public void StopGame()
     {
+        SoundManager.Instance.StopMusic();
         _deadScreen.SetActive(true);
         _spawnerManager.Stop();
         StopAllCoroutines();

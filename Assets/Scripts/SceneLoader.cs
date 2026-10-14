@@ -23,14 +23,8 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        SoundManager.Instance.PlayClip(_open, Vector3.zero, 5);
-    }
-
     public IEnumerator ChangeScene(string sceneName)
     {
-        SoundManager.Instance.PlayClip(_close, Vector3.zero, 1);
         _transition.SetTrigger("Start");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);

@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 2841241111324657675}
   - component: {fileID: 7850885294784191827}
   - component: {fileID: 3930589568900388372}
-  - component: {fileID: 4262969570249053581}
   m_Layer: 5
   m_Name: Doors
   m_TagString: Untagged
@@ -290,17 +289,3 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4262969570249053581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4627771501450009075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d43df8a7b903e408ee62d10e212bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _open: {fileID: 8300000, guid: 0f8b149bea6d4d0418d02f5101008bec, type: 3}
-  _close: {fileID: 8300000, guid: a82758d7c56295042b5e85a846929483, type: 3}
