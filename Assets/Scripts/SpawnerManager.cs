@@ -18,6 +18,7 @@ public class SpawnerManager : MonoBehaviour
             if (_stop == false)
             {
                 Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], WhereToSpawn(), new Quaternion(0, 0, RandomInt(-180, 180), 0));
+                print(spawners);
                 spawners._manager = this;
                 _canSpawn = false;
                 yield return new WaitForSeconds(_spawnRate);
@@ -74,7 +75,6 @@ public class SpawnerManager : MonoBehaviour
         {
             yield return new WaitForSeconds(5);
             _spawnRate += -0.1f;
-            print(_spawnRate);
             StartCoroutine(UpSpawnRate());
         }
     }
