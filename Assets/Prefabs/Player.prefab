@@ -5049,6 +5049,7 @@ MonoBehaviour:
   _lifePoint: 3
   _circleCollider: {fileID: 1929470060670976938}
   _blood: {fileID: 1244229085080692822}
+  _deathSound: {fileID: 8300000, guid: b7fdad131a417ab4baa915bbf9927af4, type: 3}
 --- !u!114 &5580597239238985330
 MonoBehaviour:
   m_ObjectHideFlags: 0

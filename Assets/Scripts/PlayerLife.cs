@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private int _lifePoint = 1;
     [SerializeField] private CircleCollider2D _circleCollider;
     [SerializeField] GameObject _blood;
+    [SerializeField] AudioClip _deathSound;
 
     void Start()
     {
@@ -33,15 +34,24 @@ public class PlayerLife : MonoBehaviour
         {
             if ((_projectileLayer & (1 << collision.transform.gameObject.layer)) > 0)
             {
-                StartCoroutine(Invincible());
-                SetHp(-1);
+                if (_lifePoint > 0)
+                {
+                    StartCoroutine(Invincible());
+                    SetHp(-1);
+                }
             }
         }
     }
 
     IEnumerator TheEnd()
     {
+        _circleCollider.enabled = false;
         _playerMouvement.enabled = false;
+        if (_deathSound != null)
+        {
+            SoundManager.Instance.PlayClip(_deathSound, transform.position, 0.8f);
+            Debug.Log("ok");
+        }
         _blood.SetActive(true);
         yield return new WaitForSeconds(1);
         GameManager.Instance.StopGame();

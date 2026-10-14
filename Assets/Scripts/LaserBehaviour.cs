@@ -8,6 +8,8 @@ public class LaserBehaviour : MonoBehaviour
     [SerializeField] private GameObject _visualpreview;
     [SerializeField] private GameObject _preview;
     [SerializeField] private GameObject _laser;
+    [SerializeField] private AudioClip _laserShoot;
+    [SerializeField] private AudioClip _laserSpawn;
     float _time;
    [SerializeField] bool _lookAt;
 
@@ -16,6 +18,10 @@ public class LaserBehaviour : MonoBehaviour
     void Start()
     {
         _target = FindFirstObjectByType<PlayerMouvement>();
+        if (_laserSpawn != null)
+        {
+            SoundManager.Instance.PlayClip(_laserSpawn, transform.position,1);
+        }
         if (_lookAt)
         {
             if (_target != null)
@@ -49,6 +55,7 @@ public class LaserBehaviour : MonoBehaviour
         yield return new WaitForSeconds(_chargeTime);
         _preview.SetActive(false);
         _laser.SetActive(true);
+        SoundManager.Instance.PlayClip(_laserShoot, transform.position, 0.8f);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

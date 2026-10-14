@@ -16,9 +16,12 @@ public class Spawner : MonoBehaviour
     [SerializeField] float _FireRate;
 
     [SerializeField] float _lifeTime;
+    [SerializeField] AudioClip _spawnSfx;
+    [SerializeField] AudioClip _shootSfx;
     bool _canFire = true;
     void Start()
     {
+        if (_spawnSfx != null) SoundManager.Instance.PlayClip(_spawnSfx, transform.position, 8);
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
         StartCoroutine(Delay());
@@ -55,7 +58,7 @@ public class Spawner : MonoBehaviour
     {
         _canFire = false;
         yield return new WaitForSeconds(_FireRate);
-
+        if(_shootSfx != null) SoundManager.Instance.PlayClip(_shootSfx, transform.position, 1);
         if (_randomSpawn)
         {
             GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), transform.rotation);

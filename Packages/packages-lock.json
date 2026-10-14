@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.luca3317.tmpeffects": {
-      "version": "https://github.com/Luca3317/TMPEffects.git?path=/Package",
+      "version": "0.3.2",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "8f736cef76d5beefefc8adc527c79e05d8e17bce"
+      "url": "https://package.openupm.com"
     },
     "com.unity.2d.animation": {
       "version": "13.0.5",

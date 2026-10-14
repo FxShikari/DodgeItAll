@@ -143,6 +143,8 @@ MonoBehaviour:
   _visualpreview: {fileID: 454418760855323831}
   _preview: {fileID: 2560925109745608340}
   _laser: {fileID: 9218740228472527606}
+  _laserShoot: {fileID: 8300000, guid: 34bcb515471946248ae809a7af3dfe31, type: 3}
+  _laserSpawn: {fileID: 8300000, guid: d21c8df05a4206f4f805a8512788f946, type: 3}
   _lookAt: 1
 --- !u!1 &2560925109745608340
 GameObject:

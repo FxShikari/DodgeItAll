@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   _transition: {fileID: 380521702647820249}
+  _open: {fileID: 8300000, guid: 0f8b149bea6d4d0418d02f5101008bec, type: 3}
+  _close: {fileID: 8300000, guid: a82758d7c56295042b5e85a846929483, type: 3}
 --- !u!1 &6979306319505459579
 GameObject:
   m_ObjectHideFlags: 0

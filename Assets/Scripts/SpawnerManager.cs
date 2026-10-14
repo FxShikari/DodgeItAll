@@ -10,7 +10,6 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] Vector3 _playerPos;
     private bool _stop;
     
-
     IEnumerator Spawn()
     {
        
@@ -66,14 +65,16 @@ public class SpawnerManager : MonoBehaviour
     public void StarterParckProMax()
     {
         StartCoroutine(Spawn());
+        StartCoroutine(UpSpawnRate());
     }
 
     IEnumerator UpSpawnRate()
     {
         if (_spawnRate >= 3f)
         {
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(5);
             _spawnRate += -0.1f;
+            print(_spawnRate);
             UpSpawnRate();
         }
     }

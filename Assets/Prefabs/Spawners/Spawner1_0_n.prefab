@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266db3374c4d9c4fb93c7cfecd4a441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  _manager: {fileID: 0}
   _projToSpawn: {fileID: 1899647865698841268, guid: 25f9a674d80fb7045988661c30035bb6, type: 3}
   _spawnPoints:
   - {fileID: 6663576995258448007}
@@ -283,10 +284,13 @@ MonoBehaviour:
   _father: {fileID: 0}
   _spin: 1
   _move: 0
+  _randomSpawn: 0
   _Mspeed: 0
   _Rspeed: 50
   _FireRate: 0.4
   _lifeTime: 5
+  _spawnSfx: {fileID: 8300000, guid: da4024351c189f545b28b8ec6123e2ad, type: 3}
+  _shootSfx: {fileID: 8300000, guid: 60da99fd2d2bf5e43a10968feedb40e8, type: 3}
 --- !u!1 &7894504787380556249
 GameObject:
   m_ObjectHideFlags: 0
