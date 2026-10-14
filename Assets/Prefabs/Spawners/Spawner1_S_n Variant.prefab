@@ -57,6 +57,14 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6168757766670460291, guid: 5b70ba0513836d4499a716257702e647, type: 3}
+      propertyPath: _shootSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 60da99fd2d2bf5e43a10968feedb40e8, type: 3}
+    - target: {fileID: 6168757766670460291, guid: 5b70ba0513836d4499a716257702e647, type: 3}
+      propertyPath: _spawnSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: da4024351c189f545b28b8ec6123e2ad, type: 3}
+    - target: {fileID: 6168757766670460291, guid: 5b70ba0513836d4499a716257702e647, type: 3}
       propertyPath: _projToSpawn
       value: 
       objectReference: {fileID: 1899647865698841268, guid: 25f9a674d80fb7045988661c30035bb6, type: 3}

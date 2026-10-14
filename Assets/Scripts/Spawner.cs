@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public SpawnerManager _manager;
     [SerializeField] GameObject _projToSpawn;
     [SerializeField] GameObject[] _spawnPoints;
     [SerializeField] Poubelle _father;
@@ -15,9 +16,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] float _FireRate;
 
     [SerializeField] float _lifeTime;
+    [SerializeField] AudioClip _spawnSfx;
+    [SerializeField] AudioClip _shootSfx;
     bool _canFire = true;
     void Start()
     {
+        if (_spawnSfx != null) SoundManager.Instance.PlayClip(_spawnSfx, transform.position, 8);
+        _manager = FindAnyObjectByType<SpawnerManager>();
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
         StartCoroutine(Delay());
@@ -54,10 +59,10 @@ public class Spawner : MonoBehaviour
     {
         _canFire = false;
         yield return new WaitForSeconds(_FireRate);
-
+        if(_shootSfx != null) SoundManager.Instance.PlayClip(_shootSfx, transform.position, 1);
         if (_randomSpawn)
         {
-            GameObject bullet = Instantiate(_projToSpawn, new Vector3(RandomInt(-8,8),RandomInt(-4,4),0), transform.rotation);
+            GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), transform.rotation);
             bullet.transform.parent = _father.transform;
             _canFire = true;
         }

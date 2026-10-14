@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
@@ -8,11 +9,6 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] float _spawnRate;
     [SerializeField] Vector3 _playerPos;
     private bool _stop;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        _playerPos = FindFirstObjectByType<PlayerMouvement>().gameObject.transform.position;
-    }
     
     IEnumerator Spawn()
     {
@@ -22,6 +18,8 @@ public class SpawnerManager : MonoBehaviour
             if (_stop == false)
             {
                 Spawner spawners = Instantiate(_spawnerList[RandomInt(0, _spawnerList.Length)], WhereToSpawn(), new Quaternion(0, 0, RandomInt(-180, 180), 0));
+                print(spawners);
+                spawners._manager = this;
                 _canSpawn = false;
                 yield return new WaitForSeconds(_spawnRate);
                 _canSpawn = true;
@@ -33,7 +31,8 @@ public class SpawnerManager : MonoBehaviour
 
     private bool IsPlayerHere(Vector3 spawnPos)
     {
-        if (Vector3.Distance(spawnPos, _playerPos) < 10)
+        _playerPos = FindFirstObjectByType<PlayerMouvement>().gameObject.transform.position;
+        if (Vector3.Distance(spawnPos, _playerPos) < 3)
         {
             return true;
         }
@@ -43,7 +42,7 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    private Vector3 WhereToSpawn()
+    public Vector3 WhereToSpawn()
     {
         Vector3 here = new Vector3(RandomInt(-8, 8), RandomInt(-4, 4), 0);
         if (IsPlayerHere(here) == true)
@@ -67,15 +66,16 @@ public class SpawnerManager : MonoBehaviour
     public void StarterParckProMax()
     {
         StartCoroutine(Spawn());
+        StartCoroutine(UpSpawnRate());
     }
 
-    IEnumerator UpSpawn()
+    IEnumerator UpSpawnRate()
     {
         if (_spawnRate >= 3f)
         {
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(5);
             _spawnRate += -0.1f;
-            UpSpawn();
+            StartCoroutine(UpSpawnRate());
         }
     }
 }
