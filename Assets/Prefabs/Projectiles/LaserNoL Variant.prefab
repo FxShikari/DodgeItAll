@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserNoL Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6291863126845907921, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291863126845907921, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6527621830924838347, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
       propertyPath: m_LocalScale.y
       value: 20
@@ -80,8 +88,29 @@ PrefabInstance:
       propertyPath: _lookAt
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8035935822502538884, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: _visualpreview
+      value: 
+      objectReference: {fileID: 75361955912603698}
+    - target: {fileID: 8653053960149146281, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897999113175954116, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: m_Size.x
+      value: 15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218740228472527606, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+--- !u!1 &75361955912603698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 454418760855323831, guid: f58ced76f6a55944b924ee3b7ca374a3, type: 3}
+  m_PrefabInstance: {fileID: 524060468331011205}
+  m_PrefabAsset: {fileID: 0}

@@ -1,19 +1,19 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     PlayerLife _playerHP;
-    int _playerScore;
+    public int _playerScore;
     SpawnerManager _spawnerManager;
     [SerializeField]TMP_Text _scoreTxt;
     [SerializeField]TMP_Text _decompte;
+    [SerializeField] GameObject _deadScreen;
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
     [SerializeField] bool _inGame = false;
-    public int _playerHp = 1;
+    public int _playerHp = 3;
 
     public static GameManager Instance { get; private set; }
 
@@ -40,11 +40,6 @@ public class GameManager : MonoBehaviour
         _playerHP = FindFirstObjectByType<PlayerLife>();
         //Time.timeScale = 0.25f;
         SetOfCursor();
-        if (_inGame)
-        {
-            AddPoint(0);
-
-        }
     }
 
     private void Update()
@@ -74,17 +69,12 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
-
-    public void SetPlayerHP(int amount)
-    {
-        _playerHP.SetHp(amount);
-    }
     
     IEnumerator TimePoint()
     {
         yield return new WaitForSeconds(5);
         AddPoint(10);
-        TimePoint();
+        StartCoroutine(TimePoint());
     }
 
     public void AddPoint(int amount)
@@ -93,14 +83,59 @@ public class GameManager : MonoBehaviour
         _scoreTxt.text = _playerScore.ToString();
     }
 
+    private void SetPoints(int amount)
+    {
+        _playerScore = amount;
+        _scoreTxt.text = _playerScore.ToString();
+    }
+
     private void StartGame()
     {
+        SetPoints(0);
         _decompte.gameObject.SetActive(false);
         _scoreTxt.gameObject.SetActive(true);
+        SoundManager.Instance.StartPlayingMusic();
         StartCoroutine(TimePoint());
         if (_spawnerManager != null)
         {
             _spawnerManager.StarterParckProMax();
         }
+    }
+
+    public void PlayerHpAmount(int amount)
+    {
+        _playerHp = amount;
+    }
+    public void InGame()
+    {
+        _inGame = true;
+    }
+
+    public void SetGmTxt(TMP_Text scoreTxt, TMP_Text countdownTxt)
+    {
+        _scoreTxt = scoreTxt;
+        _decompte = countdownTxt;
+    }
+
+    public void SetSpawnManager(SpawnerManager sp)
+    {
+        _spawnerManager = sp;
+    }
+
+    public void SetDeadScreen(GameObject ds)
+    {
+        _deadScreen = ds;
+    }
+
+    public void StopGame()
+    {
+        SoundManager.Instance.StopMusic();
+        _deadScreen.SetActive(true);
+        _spawnerManager.Stop();
+        StopAllCoroutines();
+        _playerHp = 3;
+        _countdown = 4;
+        _isStarted = false;
+        _inGame = false; 
     }
 }
