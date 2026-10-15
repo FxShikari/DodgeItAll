@@ -1,4 +1,6 @@
 using System.Collections;
+using TMPEffects.Timeline;
+using TMPro;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
@@ -10,10 +12,11 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private CircleCollider2D _circleCollider;
     [SerializeField] GameObject _blood;
     [SerializeField] AudioClip _deathSound;
+    [SerializeField] Animator _sprite;
 
     void Start()
     {
-        _lifePoint = (GameManager.Instance._playerHp);
+        SetHp(GameManager.Instance._playerHp);
         _circleCollider = GetComponent<CircleCollider2D>();
         _hitbox = FindFirstObjectByType<CircleCollider2D>();
     }
@@ -21,6 +24,20 @@ public class PlayerLife : MonoBehaviour
     public void SetHp(int amount)
     {
         _lifePoint += amount;
+
+        if (_lifePoint == 3)
+        {
+            _sprite.SetTrigger("3hp");
+        }
+        else if (_lifePoint == 2)
+        {
+            _sprite.SetTrigger("2hp");
+        }
+        else if (_lifePoint == 1)
+        {
+            _sprite.SetTrigger("1hp");
+        }
+        
         if (_lifePoint <= 0)
         {
             //Death();

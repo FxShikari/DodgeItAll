@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] Canvas _transition;
+    [SerializeField] Animator _transition;
 
     public static SceneLoader Instance { get; private set; }
 
@@ -24,7 +24,7 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator ChangeScene(string sceneName)
     {
-        _transition.GetComponentInChildren<Animator>().SetTrigger("Start");
+        _transition.SetTrigger("Start");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
