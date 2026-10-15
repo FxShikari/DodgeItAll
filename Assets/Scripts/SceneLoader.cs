@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] Animator _transition;
-    [SerializeField] private AudioClip _open;
-    [SerializeField] private AudioClip _close;
+    [SerializeField] Canvas _transition;
+
     public static SceneLoader Instance { get; private set; }
 
     private void Awake()
@@ -25,7 +24,7 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator ChangeScene(string sceneName)
     {
-        _transition.SetTrigger("Start");
+        _transition.GetComponentInChildren<Animator>().SetTrigger("Start");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
