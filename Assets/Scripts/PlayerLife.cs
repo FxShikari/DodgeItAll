@@ -1,6 +1,4 @@
 using System.Collections;
-using TMPEffects.Timeline;
-using TMPro;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
@@ -24,20 +22,22 @@ public class PlayerLife : MonoBehaviour
     public void SetHp(int amount)
     {
         _lifePoint += amount;
-
-        if (_lifePoint == 3)
-        {
-            _sprite.SetTrigger("3hp");
-        }
-        else if (_lifePoint == 2)
-        {
-            _sprite.SetTrigger("2hp");
-        }
-        else if (_lifePoint == 1)
-        {
-            _sprite.SetTrigger("1hp");
-        }
+        _lifePoint = Mathf.Clamp(_lifePoint, 0, 3);
         
+        HpVerify();
+    }
+
+    public void StartHp(int amount)
+    {
+        _lifePoint = amount;
+        _lifePoint = Mathf.Clamp(_lifePoint, 0, 3);
+        HpVerify();
+    }
+
+    private void HpVerify()
+    {
+        _sprite.SetInteger("Hp", _lifePoint);
+
         if (_lifePoint <= 0)
         {
             //Death();
@@ -77,7 +77,7 @@ public class PlayerLife : MonoBehaviour
     IEnumerator Invincible()
     {
        _circleCollider.enabled = false;
-       yield return new WaitForSeconds(0.3f);
+       yield return new WaitForSeconds(0.8f);
        _circleCollider.enabled = true;
     }
 }

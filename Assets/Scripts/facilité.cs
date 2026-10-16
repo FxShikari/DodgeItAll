@@ -14,7 +14,7 @@ public class facilité : MonoBehaviour
             _animator.SetTrigger("Push");
             if (_buttonClic != null)SoundManager.Instance.PlayClip(_buttonClic, transform.position, 1);
             GameManager.Instance.PlayerHpAmount(_lifeAmount);
-            other.GetComponent<PlayerLife>().SetHp(_lifeAmount);
+            other.GetComponent<PlayerLife>().StartHp(_lifeAmount);
           
         }
     }
