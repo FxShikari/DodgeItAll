@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPEffects.Timeline.Markers;
 using TMPro;
 using UnityEngine;
 
@@ -10,12 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]TMP_Text _scoreTxt;
     [SerializeField]TMP_Text _decompte;
     [SerializeField] GameObject _deadScreen;
+    [SerializeField] GameObject _pointText;
     [SerializeField]float _countdown;
     [SerializeField] bool _isStarted = false;
     [SerializeField] bool _inGame = false;
     public int _playerHp = 3;
 
     [SerializeField] GameObject _deadPlayer;
+    [SerializeField] GameObject _deadPlayerUi;
     [SerializeField] GameObject _restartZone;
 
     public static GameManager Instance { get; private set; }
@@ -77,12 +80,22 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         AddPoint(10);
+        GameObject pointText = Instantiate(_pointText, _scoreTxt.transform.position + Vector3.down,transform.rotation);
         StartCoroutine(TimePoint());
     }
 
     public void AddPoint(int amount)
     {
         _playerScore += amount;
+        StartCoroutine(ScoreAnimation());
+    }
+
+    IEnumerator ScoreAnimation()
+    {
+        _scoreTxt.text = ("<wave>") + _playerScore.ToString();
+        _scoreTxt.GetComponent<Animator>().SetTrigger("AddScore");
+
+        yield return new WaitForSeconds(0.55f);
         _scoreTxt.text = _playerScore.ToString();
     }
 
@@ -138,6 +151,10 @@ public class GameManager : MonoBehaviour
     public void setRestartZone(GameObject rz)
     {
         _restartZone = rz;
+    }
+    public void SetPlayerVisual(GameObject Pv)
+    {
+        _deadPlayerUi = Pv;
     }
 
     public void StopGame()

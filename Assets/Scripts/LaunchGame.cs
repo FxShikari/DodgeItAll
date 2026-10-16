@@ -9,6 +9,7 @@ public class LaunchGame : MonoBehaviour
     [SerializeField] SpawnerManager _spawnerManager;
     [SerializeField] GameObject _deadScreen;
     [SerializeField] GameObject _deadPlayer;
+    [SerializeField] GameObject _deadPlayerUi;
     [SerializeField] GameObject _restartZone;
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class LaunchGame : MonoBehaviour
         GameManager.Instance.SetDeadScreen(_deadScreen);
         GameManager.Instance.setDeadPlayer(_deadPlayer);
         GameManager.Instance.setRestartZone(_restartZone);
+        //GameManager.Instance.SetPlayerVisual(_deadPlayerUi);
 
     }
     private void Start()
