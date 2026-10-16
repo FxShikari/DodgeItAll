@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
         if(_shootSfx != null) SoundManager.Instance.PlayClip(_shootSfx, transform.position, 0.5f);
         if (_randomSpawn)
         {
-            GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), transform.rotation);
+            GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), _projToSpawn.transform.rotation);
             bullet.transform.parent = _father.transform;
             _canFire = true;
         }
