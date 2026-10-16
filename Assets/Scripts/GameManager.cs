@@ -147,7 +147,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AfterLife());
         _spawnerManager.Stop();
         StopAllCoroutines();
-        _playerHp = 3;
         _countdown = 4;
         _isStarted = false;
         _inGame = false; 
@@ -156,7 +155,8 @@ public class GameManager : MonoBehaviour
     IEnumerator AfterLife()
     {
         _restartZone.SetActive(true);
-        yield return new WaitForSeconds(1);
         _deadPlayer.SetActive(true);
+        yield return null;
+        
     }
 }
