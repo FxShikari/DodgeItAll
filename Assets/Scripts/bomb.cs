@@ -70,7 +70,7 @@ public class bomb : MonoBehaviour
         }
         yield return new WaitForSeconds(_detonationTime);
         _follow = false;
-        if (_explosionSfx != null)SoundManager.Instance.PlayClip(_explosionSfx, transform.position, 1);
+        if (_explosionSfx != null)SoundManager.Instance.PlayClip(_explosionSfx, transform.position, 0.8f);
         fire();
         if (_Nbomb)
         {

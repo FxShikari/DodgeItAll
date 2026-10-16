@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     bool _canFire = true;
     void Start()
     {
-        if (_spawnSfx != null) SoundManager.Instance.PlayClip(_spawnSfx, transform.position, 8);
+        if (_spawnSfx != null) SoundManager.Instance.PlayClip(_spawnSfx, transform.position, 3);
         _manager = FindAnyObjectByType<SpawnerManager>();
         _father = FindFirstObjectByType<Poubelle>();
         StartCoroutine(LifeTime(_lifeTime));
@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
     {
         _canFire = false;
         yield return new WaitForSeconds(_FireRate);
-        if(_shootSfx != null) SoundManager.Instance.PlayClip(_shootSfx, transform.position, 1);
+        if(_shootSfx != null) SoundManager.Instance.PlayClip(_shootSfx, transform.position, 0.5f);
         if (_randomSpawn)
         {
             GameObject bullet = Instantiate(_projToSpawn,_manager.WhereToSpawn(), transform.rotation);

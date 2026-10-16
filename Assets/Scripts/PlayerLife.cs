@@ -10,6 +10,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private CircleCollider2D _circleCollider;
     [SerializeField] GameObject _blood;
     [SerializeField] AudioClip _deathSound;
+     [SerializeField] AudioClip _hitSound;
     [SerializeField] Animator _sprite;
 
     void Start()
@@ -53,6 +54,7 @@ public class PlayerLife : MonoBehaviour
             {
                 if (_lifePoint > 0)
                 {
+                    SoundManager.Instance.PlayClip(_hitSound, transform.position, 1f);
                     StartCoroutine(Invincible());
                     SetHp(-1);
                 }

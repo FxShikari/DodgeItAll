@@ -20,7 +20,7 @@ public class LaserBehaviour : MonoBehaviour
         _target = FindFirstObjectByType<PlayerMouvement>();
         if (_laserSpawn != null)
         {
-            SoundManager.Instance.PlayClip(_laserSpawn, transform.position,1);
+            SoundManager.Instance.PlayClip(_laserSpawn, transform.position,0.5f);
         }
         if (_lookAt)
         {
@@ -55,7 +55,7 @@ public class LaserBehaviour : MonoBehaviour
         yield return new WaitForSeconds(_chargeTime);
         _preview.SetActive(false);
         _laser.SetActive(true);
-        SoundManager.Instance.PlayClip(_laserShoot, transform.position, 0.8f);
+        SoundManager.Instance.PlayClip(_laserShoot, transform.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

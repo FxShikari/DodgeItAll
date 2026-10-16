@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _inGame = false;
     public int _playerHp = 3;
 
+    [SerializeField] GameObject _deadPlayer;
+    [SerializeField] GameObject _restartZone;
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -127,15 +130,33 @@ public class GameManager : MonoBehaviour
         _deadScreen = ds;
     }
 
+    public void setDeadPlayer(GameObject dp)
+    {
+        _deadPlayer = dp;
+    }
+
+    public void setRestartZone(GameObject rz)
+    {
+        _restartZone = rz;
+    }
+
     public void StopGame()
     {
         SoundManager.Instance.StopMusic();
         _deadScreen.SetActive(true);
+        StartCoroutine(AfterLife());
         _spawnerManager.Stop();
         StopAllCoroutines();
         _playerHp = 3;
         _countdown = 4;
         _isStarted = false;
         _inGame = false; 
+    }
+
+    IEnumerator AfterLife()
+    {
+        _restartZone.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _deadPlayer.SetActive(true);
     }
 }

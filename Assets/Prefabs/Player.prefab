@@ -5046,10 +5046,11 @@ MonoBehaviour:
   _projectileLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _lifePoint: 1
+  _lifePoint: 0
   _circleCollider: {fileID: 1929470060670976938}
   _blood: {fileID: 1244229085080692822}
   _deathSound: {fileID: 8300000, guid: b7fdad131a417ab4baa915bbf9927af4, type: 3}
+  _hitSound: {fileID: 8300000, guid: 35642b7d4e87399409a05564387313de, type: 3}
   _sprite: {fileID: 500058769733398535}
 --- !u!114 &5580597239238985330
 MonoBehaviour:
@@ -5211,7 +5212,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7145198348311737387, guid: f63b7ff6d1e539540a3d9065d7818512, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.018348932, a: 1}
+  m_Color: {r: 1, g: 0.8883376, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
