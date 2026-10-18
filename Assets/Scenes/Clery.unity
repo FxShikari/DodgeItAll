@@ -3400,6 +3400,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 279550762584440042, guid: d426d3287856c1542b28506e261646fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1272012046536868823, guid: d426d3287856c1542b28506e261646fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.23
@@ -3444,6 +3448,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3552191698291626434, guid: d426d3287856c1542b28506e261646fb, type: 3}
+      propertyPath: _styleZone
+      value: 
+      objectReference: {fileID: 6443591572291701176}
     - target: {fileID: 4252867397242934219, guid: d426d3287856c1542b28506e261646fb, type: 3}
       propertyPath: _pointTxt
       value: 
@@ -3464,6 +3472,11 @@ PrefabInstance:
 --- !u!95 &6443591572291701174 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 500058769733398535, guid: d426d3287856c1542b28506e261646fb, type: 3}
+  m_PrefabInstance: {fileID: 6443591572291701173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6443591572291701176 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7687831415691700192, guid: d426d3287856c1542b28506e261646fb, type: 3}
   m_PrefabInstance: {fileID: 6443591572291701173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

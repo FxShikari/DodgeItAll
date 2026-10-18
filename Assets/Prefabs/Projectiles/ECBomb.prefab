@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5122552323546911784}
   - component: {fileID: 7952605746157567959}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: preview (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 5853425850025008586}
   - component: {fileID: 6047705685820328376}
   - component: {fileID: 8974194276047238447}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ECBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8547368085771255435}
   - component: {fileID: 6564331070789642292}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,6 +312,10 @@ PrefabInstance:
     - target: {fileID: 6532790947186562566, guid: fcfd52bfe83f4d04a8a3f71398c4a235, type: 3}
       propertyPath: m_Name
       value: ExplodingCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532790947186562566, guid: fcfd52bfe83f4d04a8a3f71398c4a235, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6532790947186562566, guid: fcfd52bfe83f4d04a8a3f71398c4a235, type: 3}
       propertyPath: m_IsActive

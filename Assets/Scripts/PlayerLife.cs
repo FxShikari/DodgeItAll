@@ -8,9 +8,10 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] LayerMask _projectileLayer;
     [SerializeField] private int _lifePoint = 1;
     [SerializeField] private CircleCollider2D _circleCollider;
+    [SerializeField] private CircleCollider2D _styleZone;
     [SerializeField] GameObject _blood;
     [SerializeField] AudioClip _deathSound;
-     [SerializeField] AudioClip _hitSound;
+    [SerializeField] AudioClip _hitSound;
     [SerializeField] Animator _sprite;
 
     void Start()
@@ -64,6 +65,7 @@ public class PlayerLife : MonoBehaviour
 
     IEnumerator TheEnd()
     {
+         _styleZone.enabled = false;
         _circleCollider.enabled = false;
         _playerMouvement.enabled = false;
         if (_deathSound != null)
@@ -79,7 +81,9 @@ public class PlayerLife : MonoBehaviour
     IEnumerator Invincible()
     {
        _circleCollider.enabled = false;
-       yield return new WaitForSeconds(0.8f);
+       _styleZone.enabled = false;
+       yield return new WaitForSeconds(1);
        _circleCollider.enabled = true;
+       _styleZone.enabled = true;
     }
 }

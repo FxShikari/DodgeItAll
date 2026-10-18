@@ -1185,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1929470060670976938, guid: d426d3287856c1542b28506e261646fb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2732749421175289446, guid: d426d3287856c1542b28506e261646fb, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1197,6 +1201,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3552191698291626434, guid: d426d3287856c1542b28506e261646fb, type: 3}
+      propertyPath: _styleZone
+      value: 
+      objectReference: {fileID: 1307305976}
     - target: {fileID: 4252867397242934219, guid: d426d3287856c1542b28506e261646fb, type: 3}
       propertyPath: _pointTxt
       value: 
@@ -1498,6 +1506,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1307305976 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7687831415691700192, guid: d426d3287856c1542b28506e261646fb, type: 3}
+  m_PrefabInstance: {fileID: 1102855773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437635180
 GameObject:
   m_ObjectHideFlags: 0
